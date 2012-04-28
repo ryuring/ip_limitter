@@ -5,7 +5,14 @@
  * @package ip_limitter.config
  */
 loadPluginConfig('ip_limitter.ip_limitter');
-
+/**
+ * これ以下の処理を行うと、
+ * 		ウィジェットエリア編集：利用中ウィジェットの削除がうまくいかない
+ *		プラグインの更新がうまくいかない
+ *		公開側ウィジェットの表示がうまくいかない
+ * などの症状が出たので、再考が必要かな？と思ってます。
+ */
+/*
 $IpLimitterConfig = ClassRegistry::init('IpLimitter.IpLimitterConfig');
 $datas = $IpLimitterConfig->findExpanded();
 if($datas) {
@@ -38,6 +45,14 @@ if($datas) {
 		}
 	}
 }
+ * 
+ */
+/**
+ * 
+ * @param boolean $safe
+ * @return string 
+ */
+/*
 function getClientIP($safe = true) {
 	if (!$safe && env('HTTP_X_FORWARDED_FOR') != null) {
 		$ipaddr = preg_replace('/(?:,.*)/', '', env('HTTP_X_FORWARDED_FOR'));
@@ -58,3 +73,4 @@ function getClientIP($safe = true) {
 	}
 	return trim($ipaddr);
 }
+*/
