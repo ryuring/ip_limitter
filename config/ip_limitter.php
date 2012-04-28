@@ -11,5 +11,3 @@
 					'url' => array('admin' => true, 'plugin' => 'ip_limitter', 'controller' => 'ip_limitter_configs', 'action' => 'index'))
 		)
 	);
-
-?>

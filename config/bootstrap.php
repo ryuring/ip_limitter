@@ -58,4 +58,3 @@ function getClientIP($safe = true) {
 	}
 	return trim($ipaddr);
 }
-?>
