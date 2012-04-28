@@ -1,4 +1,11 @@
 <?php
+/**
+ * IP Limitter 起動処理
+ *
+ * @package ip_limitter.config
+ */
+loadPluginConfig('ip_limitter.ip_limitter');
+
 $IpLimitterConfig = ClassRegistry::init('IpLimitter.IpLimitterConfig');
 $datas = $IpLimitterConfig->findExpanded();
 if($datas) {
@@ -51,4 +58,3 @@ function getClientIP($safe = true) {
 	}
 	return trim($ipaddr);
 }
-?>
