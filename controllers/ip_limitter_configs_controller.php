@@ -36,7 +36,7 @@ class IpLimitterConfigsController extends AppController {
  * @var array
  * @access public
  */
-	var $subMenuElements = array();
+	var $subMenuElements = array('ip_limitter');
 /**
  * ぱんくずナビ
  *
