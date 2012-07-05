@@ -1,6 +1,13 @@
 <?php
 App::import('Controller', 'Plugins');
 class IpLimitterConfigsController extends PluginsController {
+/**
+ * コンポーネント
+ * 
+ * @var array
+ * @access public
+ */
+	var $components = array('BcAuth', 'Cookie', 'BcAuthConfigure');	
 	var $name = 'IpLimitterConfigs';
 	var $uses = array('Plugin', 'IpLimitter.IpLimitterConfig');
 	function admin_index() {

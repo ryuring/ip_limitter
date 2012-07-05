@@ -1,7 +1,5 @@
-<h2><?php $bcBaser->contentsTitle() ?></h2>
-
 <?php echo $bcForm->create('IpLimitterConfig', array('action' => 'index')) ?>
-<table cellpadding="0" cellspacing="0" class="admin-row-table-01">
+<table cellpadding="0" cellspacing="0" class="form-table">
 	<tr>
 		<th class="col-head"><?php echo $bcForm->label('IpLimitterConfig.allowed_ip', '許可するIPアドレス') ?></th>
 		<td class="col-input">
@@ -28,7 +26,7 @@
 	</tr>
 </table>
 
-<div class="align-center">
+<div class="submit">
 	<?php echo $bcForm->submit('更　新', array('div' => false, 'class' => 'btn-orange button')) ?>
 </div>
 

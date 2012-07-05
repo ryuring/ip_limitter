@@ -1,4 +1,27 @@
 <?php
+if(!function_exists('getClientIP')){
+	function getClientIP($safe = true) {
+		if (!$safe && env('HTTP_X_FORWARDED_FOR') != null) {
+			$ipaddr = preg_replace('/(?:,.*)/', '', env('HTTP_X_FORWARDED_FOR'));
+		} else {
+			if (env('HTTP_CLIENT_IP') != null) {
+				$ipaddr = env('HTTP_CLIENT_IP');
+			} else {
+				$ipaddr = env('REMOTE_ADDR');
+			}
+		}
+
+		if (env('HTTP_CLIENTADDRESS') != null) {
+			$tmpipaddr = env('HTTP_CLIENTADDRESS');
+
+			if (!empty($tmpipaddr)) {
+				$ipaddr = preg_replace('/(?:,.*)/', '', $tmpipaddr);
+			}
+		}
+		return trim($ipaddr);
+	}
+}
+
 $IpLimitterConfig = ClassRegistry::init('IpLimitter.IpLimitterConfig');
 $datas = $IpLimitterConfig->findExpanded();
 if($datas) {
@@ -30,25 +53,5 @@ if($datas) {
 			}
 		}
 	}
-}
-function getClientIP($safe = true) {
-	if (!$safe && env('HTTP_X_FORWARDED_FOR') != null) {
-		$ipaddr = preg_replace('/(?:,.*)/', '', env('HTTP_X_FORWARDED_FOR'));
-	} else {
-		if (env('HTTP_CLIENT_IP') != null) {
-			$ipaddr = env('HTTP_CLIENT_IP');
-		} else {
-			$ipaddr = env('REMOTE_ADDR');
-		}
-	}
-
-	if (env('HTTP_CLIENTADDRESS') != null) {
-		$tmpipaddr = env('HTTP_CLIENTADDRESS');
-
-		if (!empty($tmpipaddr)) {
-			$ipaddr = preg_replace('/(?:,.*)/', '', $tmpipaddr);
-		}
-	}
-	return trim($ipaddr);
 }
 ?>
