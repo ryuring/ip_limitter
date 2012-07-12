@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * IP Limitter設定コントローラー
  *
@@ -10,6 +11,35 @@ class IpLimitterConfigsController extends AppController {
  * @var string
  * @access public
  */
+=======
+/* SVN FILE: $Id$ */
+/**
+ * [IpLimitter] 設定ページ
+ *
+ * PHP version 5
+ *
+ * baserCMS :  Based Website Development Project <http://basercms.net>
+ * Copyright 2008 - 2012, baserCMS Users Community <http://sites.google.com/site/baserusers/>
+ *
+ * @copyright		Copyright 2011 - 2012, Catchup, Inc.
+ * @link			http://www.e-catchup.jp Catchup, Inc.
+ * @package			ip_limitter.controllers
+ * @since			Baser v 2.0.0
+ * @version			$Revision$
+ * @modifiedby		$LastChangedBy$
+ * @lastmodified	$Date$
+ * @license			MIT lincense
+ */
+App::import('Controller', 'Plugins');
+class IpLimitterConfigsController extends PluginsController {
+/**
+ * コンポーネント
+ * 
+ * @var array
+ * @access public
+ */
+	var $components = array('BcAuth', 'Cookie', 'BcAuthConfigure');	
+>>>>>>> c00209ace5c8a542db899a7f350ed76b714aceba
 	var $name = 'IpLimitterConfigs';
 /**
  * モデル
