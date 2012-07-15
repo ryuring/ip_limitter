@@ -1,10 +1,4 @@
 <?php
-<<<<<<< HEAD
-/**
- * IP Limitter
- *
- * @package ip_limitter.models
-=======
 /* SVN FILE: $Id$ */
 /**
  * [IpLimitter] 設定モデル
@@ -22,25 +16,9 @@
  * @modifiedby		$LastChangedBy$
  * @lastmodified	$Date$
  * @license			MIT lincense
->>>>>>> c00209ace5c8a542db899a7f350ed76b714aceba
  */
 class IpLimitterConfig extends AppModel {
-/**
- * モデル名
- * @var string
- * @access public
- */
 	var $name = 'IpLimitterConfig';
-/**
- * プラグイン名
- * @var string
- * @access public
- */
 	var $plugin = 'IpLimitter';
-/**
- * DB設定
- * @var string
- * @access public
- */
 	var $useDbConfig = 'plugin';
 }

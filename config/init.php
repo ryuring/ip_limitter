@@ -20,8 +20,4 @@
 /**
  * データベース初期化
  */
-<<<<<<< HEAD
-$this->Plugin->initDb('ip_limitter');
-=======
 	$this->Plugin->initDb('ip_limitter');
->>>>>>> c00209ace5c8a542db899a7f350ed76b714aceba

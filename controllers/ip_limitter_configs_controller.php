@@ -1,17 +1,4 @@
 <?php
-<<<<<<< HEAD
-/**
- * IP Limitter設定コントローラー
- *
- * @package ip_limitter.controllers
- */
-class IpLimitterConfigsController extends AppController {
-/**
- * コントローラー名
- * @var string
- * @access public
- */
-=======
 /* SVN FILE: $Id$ */
 /**
  * [IpLimitter] 設定ページ
@@ -33,13 +20,10 @@ class IpLimitterConfigsController extends AppController {
 App::import('Controller', 'Plugins');
 class IpLimitterConfigsController extends PluginsController {
 /**
- * コンポーネント
- * 
- * @var array
+ * コントローラー名
+ * @var string
  * @access public
  */
-	var $components = array('BcAuth', 'Cookie', 'BcAuthConfigure');	
->>>>>>> c00209ace5c8a542db899a7f350ed76b714aceba
 	var $name = 'IpLimitterConfigs';
 /**
  * モデル
@@ -49,24 +33,11 @@ class IpLimitterConfigsController extends PluginsController {
 	var $uses = array('Plugin', 'IpLimitter.IpLimitterConfig');
 /**
  * コンポーネント
- * @var     array
- * @access  public
- */
-	var $components = array('BcAuth','Cookie','BcAuthConfigure');
-/**
- * ヘルパー
  * 
  * @var array
  * @access public
  */
-	var $helpers = array(BC_FORM_HELPER);
-/**
- * サブメニューエレメント
- *
- * @var array
- * @access public
- */
-	var $subMenuElements = array('ip_limitter');
+	var $components = array('BcAuth', 'Cookie', 'BcAuthConfigure');
 /**
  * ぱんくずナビ
  *
@@ -78,30 +49,14 @@ class IpLimitterConfigsController extends PluginsController {
 		array('name' => 'IPリミッター管理', 'url' => array('plugin' => 'ip_limitter', 'controller' => 'ip_limitter_configs', 'action' => 'index'))
 	);
 /**
- * beforeFilter
- * @return	void
- * @access	public
- */
-	function beforeFilter(){
-		
-		parent::beforeFilter();
-
-	}
-/**
- * IP Limitter設定
- * @return void
- * @access public
+ * IPリミッター設定
  */
 	function admin_index() {
 
 		if(!$this->data) {
-
 			$this->data = array('IpLimitterConfig' => $this->IpLimitterConfig->findExpanded());
-
 		} else {
-
 			$this->IpLimitterConfig->set($this->data);
-
 			if($this->IpLimitterConfig->validates()) {
 				$this->IpLimitterConfig->saveKeyValue($this->data);
 				$message = 'IPリミッターの設定を保存しました。';
@@ -109,11 +64,9 @@ class IpLimitterConfigsController extends PluginsController {
 				$this->IpLimitterConfig->saveDbLog($message);
 				$this->redirect(array('action','index'));
 			}
-
 		}
 
 		$this->pageTitle = 'IPリミッター設定';
-		$this->help = 'ip_limitter_configs_index';
 		$this->render('index');
 
 	}
