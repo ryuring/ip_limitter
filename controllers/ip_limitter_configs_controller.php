@@ -20,39 +20,15 @@
 App::import('Controller', 'Plugins');
 class IpLimitterConfigsController extends PluginsController {
 /**
- * コントローラー名
- * @var string
- * @access public
- */
-	var $name = 'IpLimitterConfigs';
-/**
- * モデル
- * @var array
- * @access public
- */
-	var $uses = array('Plugin', 'IpLimitter.IpLimitterConfig');
-/**
  * コンポーネント
  * 
  * @var array
  * @access public
  */
-	var $components = array('BcAuth', 'Cookie', 'BcAuthConfigure');
-/**
- * ぱんくずナビ
- *
- * @var string
- * @access public
- */
-	var $crumbs = array(
-		array('name' => 'プラグイン管理', 'url' => array('plugin' => '', 'controller' => 'plugins', 'action' => 'index')),
-		array('name' => 'IPリミッター管理', 'url' => array('plugin' => 'ip_limitter', 'controller' => 'ip_limitter_configs', 'action' => 'index'))
-	);
-/**
- * IPリミッター設定
- */
+	var $components = array('BcAuth', 'Cookie', 'BcAuthConfigure');	
+	var $name = 'IpLimitterConfigs';
+	var $uses = array('Plugin', 'IpLimitter.IpLimitterConfig');
 	function admin_index() {
-
 		if(!$this->data) {
 			$this->data = array('IpLimitterConfig' => $this->IpLimitterConfig->findExpanded());
 		} else {
@@ -65,10 +41,7 @@ class IpLimitterConfigsController extends PluginsController {
 				$this->redirect(array('action','index'));
 			}
 		}
-
 		$this->pageTitle = 'IPリミッター設定';
 		$this->render('index');
-
 	}
-
 }

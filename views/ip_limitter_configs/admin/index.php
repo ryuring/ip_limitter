@@ -18,11 +18,8 @@
  * @license			MIT lincense
  */
  ?>
-<script type="text/javascript">
-$(window).load(function() {
-	$("#IpLimitterConfigAllowedIp").focus();
-});
-</script>
+
+
 <?php echo $bcForm->create('IpLimitterConfig', array('action' => 'index')) ?>
 <table cellpadding="0" cellspacing="0" class="form-table">
 	<tr>
@@ -54,4 +51,5 @@ $(window).load(function() {
 <div class="submit">
 	<?php echo $bcForm->submit('更　新', array('div' => false, 'class' => 'btn-orange button')) ?>
 </div>
+
 <?php echo $bcForm->end() ?>
