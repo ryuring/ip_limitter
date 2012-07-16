@@ -38,14 +38,16 @@ class IpLimitterHookComponent extends Object {
 				$this->notFound();
 			} else {
 				$limitFolders = explode(',', $datas['limit_folders']);
-				$folder = explode('/', $controller->params['url']['url']);
-				if(!empty($folder[0])) {
-					$folder = $folder[0];
-					if(in_array($folder, $limitFolders)) {
-						if(empty($datas['redirect_url'])) {
-							$controller->notFound();
-						} else {
-							$controller->redirect($datas['redirect_url']);
+				if(!empty($controller->params['url']['url'])) {
+					$folder = explode('/', $controller->params['url']['url']);
+					if(!empty($folder[0])) {
+						$folder = $folder[0];
+						if(in_array($folder, $limitFolders)) {
+							if(empty($datas['redirect_url'])) {
+								$controller->notFound();
+							} else {
+								$controller->redirect($datas['redirect_url']);
+							}
 						}
 					}
 				}
