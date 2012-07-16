@@ -18,9 +18,7 @@
  * @license			MIT lincense
  */
 class IpLimitterHookComponent extends Object {
-
 	var $registerHooks = array('startup');
-
 	function startup(&$controller) {
 		$IpLimitterConfig = ClassRegistry::init('IpLimitter.IpLimitterConfig');
 		$datas = $IpLimitterConfig->findExpanded();
@@ -35,26 +33,24 @@ class IpLimitterHookComponent extends Object {
 				if(preg_match('/'.$pattern.'/', $controller->RequestHandler->getClientIp())) {
 					return;
 				}
-			}
+			}	
 			if(empty($datas['limit_folders'])) {
 				$this->notFound();
 			} elseif(!empty($controller->params['url']['url'])) {
-				$limitFolders = explode(',', $datas['limit_folders']);
-				if(!empty($controller->params['url']['url'])) {
 
-					$folder = explode('/', $controller->params['url']['url']);
-					if(!empty($folder[0])) {
-						$folder = $folder[0];
-						if(in_array($folder, $limitFolders)) {
-							if(empty($datas['redirect_url'])) {
-								$controller->notFound();
-							} else {
-								$controller->redirect($datas['redirect_url']);
-							}
+				$limitFolders = explode(',', $datas['limit_folders']);
+				$folder = explode('/', $controller->params['url']['url']);
+				if(!empty($folder[0])) {
+					$folder = $folder[0];
+					if(in_array($folder, $limitFolders)) {
+						if(empty($datas['redirect_url'])) {
+							$controller->notFound();
+						} else {
+							$controller->redirect($datas['redirect_url']);
 						}
 					}
-
 				}
+
 			}
 		}
 	}

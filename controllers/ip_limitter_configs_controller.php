@@ -65,8 +65,8 @@ class IpLimitterConfigsController extends PluginsController {
 				$this->redirect(array('action','index'));
 			}
 		}
-
 		$this->pageTitle = 'IPリミッター設定';
+		$this->help = 'ip_limitter_configs_index';
 		$this->render('index');
 
 	}

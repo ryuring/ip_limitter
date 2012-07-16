@@ -23,27 +23,28 @@ $(window).load(function() {
 	$("#IpLimitterConfigAllowedIp").focus();
 });
 </script>
+
 <?php echo $bcForm->create('IpLimitterConfig', array('action' => 'index')) ?>
-<table cellpadding="0" cellspacing="0" class="form-table">
+<table cellpadding="0" cellspacing="0" class="list-table" id="ListTable">
 	<tr>
-		<th class="col-head"><?php echo $bcForm->label('IpLimitterConfig.allowed_ip', '許可するIPアドレス') ?></th>
-		<td class="col-input">
+		<th><?php echo $bcForm->label('IpLimitterConfig.allowed_ip', '許可するIPアドレス') ?></th>
+		<td>
 			<small>* (アスタリスク)でグループ指定が行えます。カンマ区切りで複数指定できます。</small><br />
 			<?php echo $bcForm->input('IpLimitterConfig.allowed_ip', array('type' => 'text', 'size' => 60)) ?>
 			<?php echo $bcForm->error('IpLimitterConfig.allowed_ip') ?>
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head"><?php echo $bcForm->label('IpLimitterConfig.limit_folders', 'フォルダー指定') ?></th>
-		<td class="col-input">
+		<th><?php echo $bcForm->label('IpLimitterConfig.limit_folders', 'フォルダー指定') ?></th>
+		<td>
 			<small>指定したフォルダのみに制限をかける事ができます。カンマ区切りで複数指定できます。</small><br />
 			<?php echo $bcForm->input('IpLimitterConfig.limit_folders', array('type' => 'text', 'size' => 60)) ?>
 			<?php echo $bcForm->error('IpLimitterConfig.limit_folders') ?>
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head"><?php echo $bcForm->label('IpLimitterConfig.redirect_url', 'リダイレクト先URL') ?></th>
-		<td class="col-input">
+		<th><?php echo $bcForm->label('IpLimitterConfig.redirect_url', 'リダイレクト先URL') ?></th>
+		<td>
 			<small>指定しない場合は、Not Found ページが表示されます。</small><br />
 			<?php echo $bcForm->input('IpLimitterConfig.redirect_url', array('type' => 'text', 'size' => 60)) ?>
 			<?php echo $bcForm->error('IpLimitterConfig.redirect_url') ?>
@@ -52,6 +53,6 @@ $(window).load(function() {
 </table>
 
 <div class="submit">
-	<?php echo $bcForm->submit('更　新', array('div' => false, 'class' => 'btn-orange button')) ?>
+	<?php echo $bcForm->submit('更　新', array('div' => false, 'class' => 'button')) ?>
 </div>
 <?php echo $bcForm->end() ?>
