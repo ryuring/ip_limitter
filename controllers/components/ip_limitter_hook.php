@@ -38,7 +38,7 @@ class IpLimitterHookComponent extends Object {
 			}
 			if(empty($datas['limit_folders'])) {
 				$this->notFound();
-			} else {
+			} elseif(!empty($controller->params['url']['url'])) {
 				$limitFolders = explode(',', $datas['limit_folders']);
 				if(!empty($controller->params['url']['url'])) {
 
