@@ -19,7 +19,7 @@
  */
 class IpLimitterHookComponent extends Object {
 	var $registerHooks = array('startup');
-	function startup(&$controller) {
+	function startup($controller) {
 		$IpLimitterConfig = ClassRegistry::init('IpLimitter.IpLimitterConfig');
 		$datas = $IpLimitterConfig->findExpanded();
 		if($datas) {
@@ -33,7 +33,7 @@ class IpLimitterHookComponent extends Object {
 				if(preg_match('/'.$pattern.'/', $controller->RequestHandler->getClientIp())) {
 					return;
 				}
-			}	
+			}
 			if(empty($datas['limit_folders'])) {
 				$this->notFound();
 			} elseif(!empty($controller->params['url']['url'])) {
