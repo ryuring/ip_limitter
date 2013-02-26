@@ -59,9 +59,7 @@ class IpLimitterConfigsController extends PluginsController {
 			$this->IpLimitterConfig->set($this->data);
 			if($this->IpLimitterConfig->validates()) {
 				$this->IpLimitterConfig->saveKeyValue($this->data);
-				$message = 'IPリミッターの設定を保存しました。';
-				$this->Session->setFlash($message);
-				$this->IpLimitterConfig->saveDbLog($message);
+				$this->setMessage('IPリミッターの設定を保存しました。', false, true);
 				$this->redirect(array('action','index'));
 			}
 		}
