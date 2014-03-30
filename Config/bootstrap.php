@@ -17,7 +17,6 @@
  * @lastmodified	$Date$
  * @license			MIT lincense
  */
-Configure::load('IpLimitter.ip_limitter');
 if(!function_exists('getClientIP')){
 	function getClientIP($safe = true) {
 		if (!$safe && env('HTTP_X_FORWARDED_FOR') != null) {
