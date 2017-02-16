@@ -20,27 +20,28 @@ class IpLimitterControllerEventListener extends BcControllerEventListener {
 					return;
 				}
 			}
-			if(empty($datas['limit_folders'])) {
-				if(empty($Controller->request->params['requested'])) {
-					$Controller->notFound();
-				}
-			} elseif(!empty($Controller->request->url)) {
+			if(Configure::read('debug') == 0) {
+				if (empty($datas['limit_folders'])) {
+					if (empty($Controller->request->params['requested'])) {
+						throw new NotFoundException('見つかりませんでした。');
+					}
+				} elseif (!empty($Controller->request->url)) {
 
-				$limitFolders = explode(',', $datas['limit_folders']);
-				$folder = explode('/', $Controller->request->url);
-				if(!empty($folder[0])) {
-					$folder = $folder[0];
-					if(in_array($folder, $limitFolders)) {
-						if(empty($datas['redirect_url'])) {
-							if(empty($Controller->request->params['requested'])) {
-								$Controller->notFound();
+					$limitFolders = explode(',', $datas['limit_folders']);
+					$folder = explode('/', $Controller->request->url);
+					if (!empty($folder[0])) {
+						$folder = $folder[0];
+						if (in_array($folder, $limitFolders)) {
+							if (empty($datas['redirect_url'])) {
+								if (empty($Controller->request->params['requested'])) {
+									throw new NotFoundException('見つかりませんでした。');
+								}
+							} else {
+								$Controller->redirect($datas['redirect_url']);
 							}
-						} else {
-							$Controller->redirect($datas['redirect_url']);
 						}
 					}
 				}
-
 			}
 		}
 	}

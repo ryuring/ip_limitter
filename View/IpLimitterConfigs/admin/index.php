@@ -24,7 +24,7 @@ $(window).load(function() {
 });
 </script>
 
-<?php echo $this->BcForm->create('IpLimitterConfig', array('action' => 'index')) ?>
+<?php echo $this->BcForm->create('IpLimitterConfig', ['url' => ['action' => 'index']]) ?>
 <table cellpadding="0" cellspacing="0" class="list-table" id="ListTable">
 	<tr>
 		<th><?php echo $this->BcForm->label('IpLimitterConfig.allowed_ip', '許可するIPアドレス') ?></th>

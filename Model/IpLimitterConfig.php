@@ -17,24 +17,4 @@
  * @lastmodified	$Date$
  * @license			MIT lincense
  */
-class IpLimitterConfig extends BcPluginAppModel {
-/**
- * モデル名
- * @var string
- * @access public
- */
-	public $name = 'IpLimitterConfig';
-/**
- * プラグイン名
- * @var string
- * @access public
- */
-	public $plugin = 'IpLimitter';
-/**
- * DB設定
- * @var string
- * @access public
- */
-	public $useDbConfig = 'plugin';
-
-}
+class IpLimitterConfig extends AppModel {}

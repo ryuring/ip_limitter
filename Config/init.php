@@ -20,4 +20,4 @@
 /**
  * データベース初期化
  */
-	$this->Plugin->initDb('plugin', 'IpLimitter');
+	$this->Plugin->initDb('IpLimitter');

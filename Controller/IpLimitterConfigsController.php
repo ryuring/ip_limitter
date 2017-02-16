@@ -18,7 +18,7 @@
  * @license			MIT lincense
  */
 App::import('Controller', 'Plugins');
-class IpLimitterConfigsController extends BcPluginAppController {
+class IpLimitterConfigsController extends AppController {
 /**
  * コントローラー名
  * @var string
@@ -60,7 +60,7 @@ class IpLimitterConfigsController extends BcPluginAppController {
 			if($this->IpLimitterConfig->validates()) {
 				$this->IpLimitterConfig->saveKeyValue($this->request->data);
 				$this->setMessage('IPリミッターの設定を保存しました。', false, true);
-				$this->redirect(array('action','index'));
+				$this->redirect(['action' => 'index']);
 			}
 		}
 		$this->pageTitle = 'IPリミッター設定';
